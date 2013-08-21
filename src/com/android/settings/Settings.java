@@ -96,6 +96,10 @@ import com.android.settings.wifi.AdvancedWifiSettings;
 import com.android.settings.wifi.WifiEnabler;
 import com.android.settings.wifi.WifiSettings;
 import com.android.settings.wifi.p2p.WifiP2pSettings;
+import com.android.settings.profiles.AppGroupConfig;
+import com.android.settings.profiles.ProfileConfig;
+import com.android.settings.profiles.ProfilesSettings;
+import com.android.settings.profiles.ProfileEnabler;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -516,6 +520,9 @@ public class Settings extends PreferenceActivity
                 WifiP2pSettings.class.getName().equals(fragmentName) ||
                 BluetoothSettings.class.getName().equals(fragmentName) ||
                 DreamSettings.class.getName().equals(fragmentName) ||
+		ProfilesSettings.class.getName().equals(fragmentName) ||
+                ProfileConfig.class.getName().equals(fragmentName) ||
+                AppGroupConfig.class.getName().equals(fragmentName) ||
                 LocationSettings.class.getName().equals(fragmentName) ||
                 ToggleAccessibilityServicePreferenceFragment.class.getName().equals(fragmentName) ||
                 PrintSettingsFragment.class.getName().equals(fragmentName) ||
@@ -812,6 +819,7 @@ public class Settings extends PreferenceActivity
         public static ThemeEnabler mThemeEnabler;
         private AuthenticatorHelper mAuthHelper;
         private DevicePolicyManager mDevicePolicyManager;
+	private final ProfileEnabler mProfileEnabler;
 
         private static class HeaderViewHolder {
             ImageView icon;
@@ -831,7 +839,8 @@ public class Settings extends PreferenceActivity
             } else if (header.id == R.id.wifi_settings
                     || header.id == R.id.bluetooth_settings
                     || header.id == R.id.location_settings
-                    || header.id == R.id.theme_settings) {
+                    || header.id == R.id.theme_settings
+					|| header.id == R.id.profiles_settings) {
                 return HEADER_TYPE_SWITCH;
             } else if (header.id == R.id.security_settings) {
                 return HEADER_TYPE_BUTTON;
@@ -880,6 +889,7 @@ public class Settings extends PreferenceActivity
             mLocationEnabler = new LocationEnabler(context, new Switch(context));
             mThemeEnabler = new ThemeEnabler(context, new Switch(context));
             mDevicePolicyManager = dpm;
+			mProfileEnabler = new ProfileEnabler(context, new Switch(context));
         }
 
         @Override
@@ -949,7 +959,9 @@ public class Settings extends PreferenceActivity
                     if (header.id == R.id.wifi_settings) {
                         mWifiEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.bluetooth_settings) {
-                        mBluetoothEnabler.setSwitch(holder.switch_);
+						mBluetoothEnabler.setSwitch(holder.switch_);
+                    } else if (header.id == R.id.profiles_settings) {
+                        mProfileEnabler.setSwitch(holder.switch_);                       
                     } else if (header.id == R.id.location_settings) {
                         mLocationEnabler.setSwitch(holder.switch_);
                     } else if (header.id == R.id.theme_settings) {
@@ -1029,6 +1041,7 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.resume();
             mLocationEnabler.resume();
             mThemeEnabler.resume();
+			mProfileEnabler.resume();
         }
 
         public void pause() {
@@ -1036,6 +1049,7 @@ public class Settings extends PreferenceActivity
             mBluetoothEnabler.pause();
             mLocationEnabler.pause();
             mThemeEnabler.resume();
+			mProfileEnabler.pause();
         }
     }
 
