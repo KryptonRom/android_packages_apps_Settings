@@ -25,11 +25,13 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String KEY_CATEGORY_QS_STATUSBAR = "qs_statusbar";
     private static final String SMART_PULLDOWN = "smart_pulldown";
     private static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
+    private static final String STATUS_BAR_BRIGHTNESS_CONTROL = "status_bar_brightness_control";
 
 
     ListPreference mQuickPulldown;
 	ListPreference mSmartPulldown;
 	private CheckBoxPreference mStatusBarDoubleTapSleepGesture;
+	private CheckBoxPreference mStatusBarBrightnessControl;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -66,6 +68,19 @@ public class StatusBar extends SettingsPreferenceFragment implements
             qsStatusbar.removePreference(findPreference(QUICK_PULLDOWN));
             qsStatusbar.removePreference(findPreference(SMART_PULLDOWN));
         }
+        
+        // Status bar brightness control
+
+        // Start observing for changes on auto brightness
+        StatusBarBrightnessChangedObserver statusBarBrightnessChangedObserver =
+            new StatusBarBrightnessChangedObserver(new Handler());
+        statusBarBrightnessChangedObserver.startObserving();
+
+        mStatusBarBrightnessControl =
+            (CheckBoxPreference) prefSet.findPreference(STATUS_BAR_BRIGHTNESS_CONTROL);
+        mStatusBarBrightnessControl.setChecked((Settings.System.getInt(getContentResolver(),
+                            Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL, 0) == 1));
+        mStatusBarBrightnessControl.setOnPreferenceChangeListener(this);
     }
 
     private boolean isToggled(Preference pref) {
@@ -75,6 +90,7 @@ public class StatusBar extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
+        updateStatusBarBrightnessControl();
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
@@ -91,6 +107,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.QS_SMART_PULLDOWN,
                     smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
+        } else if (preference == mStatusBarBrightnessControl) {
+            Settings.System.putInt(getContentResolver(),
+                    Settings.System.STATUS_BAR_BRIGHTNESS_CONTROL,
+                    (Boolean) newValue ? 1 : 0);
+             return true;
         } else if (preference == mStatusBarDoubleTapSleepGesture) {
 			boolean value = (Boolean) newValue;
             Settings.System.putInt(resolver,
@@ -126,6 +147,43 @@ public class StatusBar extends SettingsPreferenceFragment implements
                     ? R.string.smart_pulldown_persistent
                     : R.string.smart_pulldown_dismissable);
             mSmartPulldown.setSummary(res.getString(R.string.smart_pulldown_summary, type));
+        }
+    }
+    
+    private void updateStatusBarBrightnessControl() {
+        try {
+            if (mStatusBarBrightnessControl != null) {
+                int mode = Settings.System.getIntForUser(getContentResolver(),
+                    Settings.System.SCREEN_BRIGHTNESS_MODE,
+                    Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+
+                if (mode == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+                    mStatusBarBrightnessControl.setEnabled(false);
+                    mStatusBarBrightnessControl.setSummary(R.string.status_bar_toggle_info);
+                } else {
+                    mStatusBarBrightnessControl.setEnabled(true);
+                    mStatusBarBrightnessControl.setSummary(
+                        R.string.status_bar_toggle_brightness_summary);
+                }
+            }
+        } catch (SettingNotFoundException e) {
+        }
+    }
+
+    private class StatusBarBrightnessChangedObserver extends ContentObserver {
+        public StatusBarBrightnessChangedObserver(Handler handler) {
+            super(handler);
+        }
+
+        @Override
+        public void onChange(boolean selfChange) {
+            updateStatusBarBrightnessControl();
+        }
+
+        public void startObserving() {
+            getContentResolver().registerContentObserver(
+                    Settings.System.getUriFor(Settings.System.SCREEN_BRIGHTNESS_MODE),
+                    false, this);
         }
     }
 }
