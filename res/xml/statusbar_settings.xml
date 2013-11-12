@@ -37,6 +37,11 @@
             android:entryValues="@array/smart_pulldown_values"
             android:persistent="false" />
             
+        <PreferenceScreen
+			android:key="notification_drawer"
+			android:fragment="com.android.settings.slim.NotificationDrawerSettings"
+			android:title="@string/notification_drawer_title" />
+            
         <!-- Network usage stats -->
         <PreferenceScreen
             android:key="network_usage_stats"
