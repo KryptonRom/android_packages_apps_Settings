@@ -221,8 +221,6 @@ Log.i("EASTER",preference.getKey().toString());
             mTaps[mTaps.length-1] = SystemClock.uptimeMillis();
             if (mTaps[0] >= (SystemClock.uptimeMillis()-500)) {
                 Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setClassName("android",
-                        com.android.internal.app.PAWorldActivity.class.getName());
                 try {
                     startActivity(intent);
                 } catch (Exception e) {

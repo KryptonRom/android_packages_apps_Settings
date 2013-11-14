@@ -24,10 +24,12 @@ public class StatusBar extends SettingsPreferenceFragment implements
     private static final String QUICK_PULLDOWN = "quick_pulldown";
     private static final String KEY_CATEGORY_QS_STATUSBAR = "qs_statusbar";
     private static final String SMART_PULLDOWN = "smart_pulldown";
+    private static final String DOUBLE_TAP_SLEEP_GESTURE = "double_tap_sleep_gesture";
 
 
     ListPreference mQuickPulldown;
 	ListPreference mSmartPulldown;
+	private CheckBoxPreference mStatusBarDoubleTapSleepGesture;
 	
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,11 @@ public class StatusBar extends SettingsPreferenceFragment implements
                 Settings.System.QS_SMART_PULLDOWN, 0, UserHandle.USER_CURRENT);
         mSmartPulldown.setValue(String.valueOf(smartPulldown));
         updateSmartPulldownSummary(smartPulldown);
+        
+        mStatusBarDoubleTapSleepGesture = (CheckBoxPreference) findPreference(DOUBLE_TAP_SLEEP_GESTURE);
+        mStatusBarDoubleTapSleepGesture.setChecked(Settings.System.getInt(getContentResolver(),
+            Settings.System.DOUBLE_TAP_SLEEP_GESTURE, 0) == 1);
+        mStatusBarDoubleTapSleepGesture.setOnPreferenceChangeListener(this);
 
         PreferenceCategory qsStatusbar =
             (PreferenceCategory) findPreference(KEY_CATEGORY_QS_STATUSBAR);
@@ -84,6 +91,10 @@ public class StatusBar extends SettingsPreferenceFragment implements
             Settings.System.putInt(getContentResolver(), Settings.System.QS_SMART_PULLDOWN,
                     smartPulldown);
             updateSmartPulldownSummary(smartPulldown);
+        } else if (preference == mStatusBarDoubleTapSleepGesture) {
+			boolean value = (Boolean) newValue;
+            Settings.System.putInt(resolver,
+                Settings.System.DOUBLE_TAP_SLEEP_GESTURE, value ? 1 : 0);
 		} else {
             return false;
         }

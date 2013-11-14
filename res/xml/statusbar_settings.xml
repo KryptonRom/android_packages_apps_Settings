@@ -62,4 +62,9 @@
             android:inputType="textNoSuggestions"
             android:persistent="false" />
             
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="double_tap_sleep_gesture"
+            android:title="@string/status_bar_double_tap_to_sleep_title" />
+            
 </PreferenceScreen>   
