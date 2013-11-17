@@ -1809,6 +1809,10 @@
 
         <activity android:name=".profiles.AppGroupConfig" />
 
+        <activity android:name=".cyanogenmod.LockscreenTargets" />
+
+        <activity android:name=".cyanogenmod.LockscreenInterface" />
+
         <activity android:name=".profiles.ProfileGroupConfig" />
 
     	<activity android:name=".profiles.WifiTriggers" />
