@@ -501,7 +501,7 @@
         <item>@string/screen_recorder_bitrate_100000000</item>
     </string-array>
     
-        <!-- Themes -->
+    <!-- Themes -->
     <string-array name="theme_auto_mode_entries">
         <item>@string/theme_auto_mode_off</item>
         <item>@string/theme_auto_mode_lightsensor</item>
@@ -512,5 +512,19 @@
         <item>0</item>
         <item>1</item>
         <item>2</item>
+    </string-array>
+    
+        <string-array name="recent_clear_all_button_location_entries" translatable="false">
+        <item>@string/recent_clear_all_button_location_top_left</item>
+        <item>@string/recent_clear_all_button_location_top_right</item>
+        <item>@string/recent_clear_all_button_location_bottom_left</item>
+        <item>@string/recent_clear_all_button_location_bottom_right</item>
+    </string-array>
+
+    <string-array name="recent_clear_all_button_location_values" translatable="false">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 </resources>
