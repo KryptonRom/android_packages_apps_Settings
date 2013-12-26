@@ -1604,8 +1604,7 @@
         </activity>
 
         <!-- ChaOS -->
-        <activity android:name=".chameleonos.AppSidebar" />
-        <activity android:name=".chameleonos.ExcludedAppsActivity" />
+        <activity android:name=".du.AppSidebar" />
 
         <!-- Pseudo-activity used to provide an intent-filter entry point to encryption settings -->
         <activity android:name="Settings$CryptKeeperSettingsActivity"
