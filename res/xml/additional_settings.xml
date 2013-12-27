@@ -40,6 +40,13 @@
         android:icon="@drawable/ic_dt_sidebar"
         android:fragment="com.android.settings.du.AppSidebar"
         android:title="@string/app_sidebar_title"/>
+        
+     <!-- Gesture anywhere -->
+     <PreferenceScreen
+        android:key="gesture_anywhere"
+        android:fragment="com.android.settings.chameleonos.labs.gestureanywhere.GestureAnywhereSettings"
+        android:icon="@drawable/ic_dt_gesture_anywhere"
+        android:title="@string/gesture_anywhere_title" />
 
     
     <PreferenceCategory
