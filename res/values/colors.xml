@@ -50,4 +50,6 @@
     <color name="tab_selector">#FFFFFFFF</color>
     <!-- Gesture Anywhere -->
     <color name="ga_gesture_color">@android:color/holo_blue_light</color>
+    
+    <color name="halo_color">#ff33b5e5</color>
 </resources>
