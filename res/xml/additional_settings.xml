@@ -55,6 +55,16 @@
         android:fragment="com.android.settings.chameleonos.labs.gestureanywhere.GestureAnywhereSettings"
         android:icon="@drawable/ic_dt_gesture_anywhere"
         android:title="@string/gesture_anywhere_title" />
+        
+     <PreferenceScreen
+        android:id="@+id/omniswitch"
+        android:layout="@layout/preference_omniswitch"
+        android:title="@string/omniswitch_settings_title" >
+        <intent
+            android:action="android.intent.action.MAIN"
+            android:targetPackage="org.omnirom.omniswitch"
+            android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
+     </PreferenceScreen>
 
     
     <PreferenceCategory

@@ -63,7 +63,6 @@ public class AdditionalSettings extends SettingsPreferenceFragment implements
     @Override
     public void onResume() {
         super.onResume();
-        updateStatusBarBrightnessControl();
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
