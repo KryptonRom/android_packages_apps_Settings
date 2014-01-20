@@ -55,7 +55,8 @@
         android:fragment="com.android.settings.chameleonos.labs.gestureanywhere.GestureAnywhereSettings"
         android:icon="@drawable/ic_dt_gesture_anywhere"
         android:title="@string/gesture_anywhere_title" />
-        
+     
+     <!-- OmniSwitch --> 
      <PreferenceScreen
         android:id="@+id/omniswitch"
         android:icon="@drawable/ic_dt_omniswitch" 
@@ -66,6 +67,14 @@
             android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
      </PreferenceScreen>
      
+     <!-- Wakelocks Blocker -->
+     <PreferenceScreen
+        android:id="@+id/wakelock_blocker"
+        android:icon="@drawable/ic_settings_wakelock_blocker"
+        android:title="@string/wakelock_blocker"
+        android:fragment="com.android.settings.aicp.WakeLockBlocker" />
+     
+     <!-- Viper-->
      <PreferenceScreen 
 		android:icon="@drawable/viper" 
 		android:title="Viper4">

@@ -984,4 +984,14 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="captive_toggle_summary">Toggle captive portal detection</string>
     <string name="captive_server">Server for captive portal detection</string>
     <string name="captive_server_summary">Server used to detect captive portal. Leave empty for default.</string>
+    
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker">Wakelock Blocker</string>
+    <string name="wakelock_blocker_title">Enable</string>
+    <string name="wakelock_blocker_summary">Activate blocking for checked wakelocks</string>
+    <string name="wakelock_blocker_save">Save</string>
+    <string name="wakelock_list_header">Available Wakelocks</string>
+    <string name="wakelock_blocker_reload">Reload</string>
+    <string name="wakelock_blocker_warning_title">Proceed with Caution</string>
+    <string name="wakelock_blocker_warning">Blocking wakelocks have the potential to cause instability, crashes or data loss.</string>
 </resources>
