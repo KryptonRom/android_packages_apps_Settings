@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<PreferenceScreen
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:title="@string/additional_settings_interface_title"
+    xmlns:settings="http://schemas.android.com/apk/res/com.android.settings">
+
+		<CheckBoxPreference
+            android:key="force_dualpanel"
+            android:title="@string/force_dualpanel_title"
+            android:summary="@string/force_dualpanel_summary"
+            android:defaultValue="false" /> 
+            
+        <CheckBoxPreference
+            android:key="reverse_default_app_picker"
+            android:title="@string/reverse_default_app_picker"
+            android:summary="@string/reverse_default_app_picker_summary" />
+
+        <!-- Recents RAM bar -->
+        <PreferenceScreen
+            android:key="recents_ram_bar"
+            android:fragment="com.android.settings.AOSPAL.RamBar"
+            android:title="@string/ram_bar" /> 
+
+        <ListPreference
+            android:key="listview_animation"
+            android:dialogTitle="@string/listview_animation_title"
+            android:title="@string/listview_animation_title"
+            android:entries="@array/listview_animation_entries"
+            android:entryValues="@array/listview_animation_values"
+            android:defaultValue="0" />
+
+        <ListPreference
+            android:key="listview_interpolator"
+            android:dialogTitle="@string/listview_interpolator_title"
+            android:title="@string/listview_interpolator_title"
+            android:entries="@array/listview_interpolator_entries"
+            android:entryValues="@array/listview_interpolator_values"
+            android:defaultValue="0"
+            android:dependency="listview_animation" />
+
+        <PreferenceScreen
+            android:id="@+id/animations"  
+            android:title="@string/title_animation_controls"  
+            android:summary="@string/header_summary_animation"  
+            android:fragment="com.android.settings.AOSPAL.fragments.AnimationControls" />
+
+</PreferenceScreen>

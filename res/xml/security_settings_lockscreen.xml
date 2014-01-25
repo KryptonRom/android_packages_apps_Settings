@@ -27,16 +27,6 @@
             android:persistent="false"/>
 
         <PreferenceScreen
-            android:key="keyguard_enable_widgets"
-            android:fragment="com.android.settings.AOSPAL.LockscreenWidgets"
-            android:title="@string/lockscreen_widgets_title"/>
-
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/security_maximize_widgets_title"
-            android:enabled="false"/>
-
-        <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
             android:key="owner_info_settings"
             android:title="@string/owner_info_settings_title"
@@ -53,10 +43,6 @@
             android:summary="@string/blur_radius_summary"
             android:max="25"
             android:defaultValue="12" />
- 
-        <PreferenceScreen
-            android:title="@string/lockscreen_notifications"
-            android:fragment="com.android.settings.AOSPAL.LockscreenNotifications" />
 
     </PreferenceCategory>
 

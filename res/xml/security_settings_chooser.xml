@@ -26,11 +26,6 @@
             android:summary="@string/unlock_set_unlock_mode_none"
             android:persistent="false"/>
 
-        <PreferenceScreen
-            android:key="keyguard_enable_widgets"
-            android:fragment="com.android.settings.AOSPAL.LockscreenWidgets"
-            android:title="@string/lockscreen_widgets_title"/>
-
         <CheckBoxPreference
             android:key="battery_around_lockscreen_ring"
             android:title="@string/battery_around_lockscreen_ring"
@@ -47,11 +42,6 @@
         <CheckBoxPreference
             android:key="power_button_instantly_locks"
             android:title="@string/lockpattern_settings_enable_power_button_instantly_locks"/>
-
-        <CheckBoxPreference
-            android:key="lockscreen_maximize_widgets"
-            android:title="@string/security_maximize_widgets_title"
-            android:enabled="false"/>
 
         <PreferenceScreen
             android:fragment="com.android.settings.OwnerInfoSettings"
@@ -70,10 +60,6 @@
             android:summary="@string/blur_radius_summary"
             android:max="25"
             android:defaultValue="12" />
-
-        <PreferenceScreen
-            android:title="@string/lockscreen_notifications"
-            android:fragment="com.android.settings.AOSPAL.LockscreenNotifications" />
 
     </PreferenceCategory>
 

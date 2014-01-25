@@ -16,6 +16,9 @@
 
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
         android:title="@string/about_settings">
+        
+        <PreferenceScreen android:key="pac_logo"
+                          android:layout="@layout/pac_logo" />
 
         <PreferenceScreen android:key="paranoidota_settings"
                 android:title="@string/system_update_settings_list_item_title" 
@@ -111,7 +114,7 @@
         <!-- Device PA version -->
         <Preference android:key="pa_version"
                 style="?android:preferenceInformationStyle"
-                android:title="@string/pa_version"
+                android:title="@string/krypton_version"
                 android:summary="@string/pa_version_default" />
 
         <!-- Device FCC equipment id -->

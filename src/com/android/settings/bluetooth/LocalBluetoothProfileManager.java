@@ -349,21 +349,10 @@ final class LocalBluetoothProfileManager {
             }
         }
 
-        if (SystemProperties.getBoolean("bluetooth.a2dp.sink.enabled", true)) {
-            Log.d(TAG, "a2dpSinkSupported, check for both sink and source UUIDs");
-            if ((BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SOURCE_UUIDS) ||
-                BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS))&&
-                mA2dpProfile != null) {
-                profiles.add(mA2dpProfile);
-                removedProfiles.remove(mA2dpProfile);
-            }
-        } else {
-            Log.d(TAG, "a2dpSinkNotSupported, check for only sink UUIDs");
-            if (BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS) &&
-                mA2dpProfile != null) {
-                profiles.add(mA2dpProfile);
-                removedProfiles.remove(mA2dpProfile);
-            }
+        if (BluetoothUuid.containsAnyUuid(uuids, A2dpProfile.SINK_UUIDS) &&
+            mA2dpProfile != null) {
+            profiles.add(mA2dpProfile);
+            removedProfiles.remove(mA2dpProfile);
         }
 
         if (BluetoothUuid.isUuidPresent(uuids, BluetoothUuid.ObexObjectPush) &&

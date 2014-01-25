@@ -18,30 +18,30 @@ import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 
-public class AdditionalSettings extends SettingsPreferenceFragment implements
+public class Lockscreen extends SettingsPreferenceFragment implements
         Preference.OnPreferenceChangeListener {
 
-    private static final String CATEGORY_HEADSETHOOK = "button_headsethook";
-    private static final String BUTTON_HEADSETHOOK_LAUNCH_VOICE = "button_headsethook_launch_voice";
-
-    private CheckBoxPreference mHeadsetHookLaunchVoice;
-
+    private static final String LOCKSCREEN_POWER_MENU = "lockscreen_power_menu";
+    
+    private CheckBoxPreference mLockScreenPowerMenu;
+    
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.additional_settings);
-        
+
+        addPreferencesFromResource(R.xml.lockscreen_settings);
         PreferenceScreen prefs = getPreferenceScreen();
         final ContentResolver resolver = getActivity().getContentResolver();
+       
+        mLockScreenPowerMenu = (CheckBoxPreference) prefs.findPreference(LOCKSCREEN_POWER_MENU);
+        if (mLockScreenPowerMenu != null) {
+            mLockScreenPowerMenu.setChecked(Settings.Secure.getInt(getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_POWER_MENU, 1) == 1);
+        }
+        
+    }
 
-        final PreferenceCategory headsethookCategory =
-                (PreferenceCategory) prefs.findPreference(CATEGORY_HEADSETHOOK);
 
-        mHeadsetHookLaunchVoice = (CheckBoxPreference) findPreference(BUTTON_HEADSETHOOK_LAUNCH_VOICE);
-        mHeadsetHookLaunchVoice.setChecked(Settings.System.getInt(resolver,
-                Settings.System.HEADSETHOOK_LAUNCH_VOICE, 1) == 1);
-    }        
-           
     private boolean isToggled(Preference pref) {
         return ((CheckBoxPreference) pref).isChecked();
     }
@@ -51,18 +51,18 @@ public class AdditionalSettings extends SettingsPreferenceFragment implements
         super.onResume();
     }
 
+
+    @Override
+    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
+		if (preference == mLockScreenPowerMenu) {
+            Settings.Secure.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.Secure.LOCK_SCREEN_POWER_MENU, isToggled(preference) ? 1 : 0);                  
+        }
+        return super.onPreferenceTreeClick(preferenceScreen, preference);
+    }
+    
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         return false;
     }
-    
-    @Override
-    public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
-        if (preference == mHeadsetHookLaunchVoice) {
-            boolean checked = ((CheckBoxPreference)preference).isChecked();
-            Settings.System.putInt(getActivity().getContentResolver(),
-                    Settings.System.HEADSETHOOK_LAUNCH_VOICE, checked ? 1:0);
-            return true;
-        } 
-        return super.onPreferenceTreeClick(preferenceScreen, preference);
-    }
 }
+
