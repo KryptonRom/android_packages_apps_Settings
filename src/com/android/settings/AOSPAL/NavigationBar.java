@@ -24,6 +24,9 @@ import java.util.List;
 public class NavigationBar extends SettingsPreferenceFragment implements
          Preference.OnPreferenceChangeListener {
 			 
+	 private static final String KEY_NAVIGATION_BAR_HEIGHT = "navigation_bar_height";
+
+     private ListPreference mNavigationBarHeight;
  
      @Override
      public void onCreate(Bundle savedInstanceState) {
@@ -31,11 +34,26 @@ public class NavigationBar extends SettingsPreferenceFragment implements
  
          addPreferencesFromResource(R.xml.navigation_bar_settings);
          
+		mNavigationBarHeight = (ListPreference) findPreference(KEY_NAVIGATION_BAR_HEIGHT);
+        mNavigationBarHeight.setOnPreferenceChangeListener(this);
+        int statusNavigationBarHeight = Settings.System.getInt(getActivity().getApplicationContext()
+                .getContentResolver(),
+                Settings.System.NAVIGATION_BAR_HEIGHT, 48);
+        mNavigationBarHeight.setValue(String.valueOf(statusNavigationBarHeight));
+        mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntry());         
        
         
 	}
  
      @Override
      public boolean onPreferenceChange(Preference preference, Object newValue) {
-		 return false;
+		 if (preference == mNavigationBarHeight) {
+            int statusNavigationBarHeight = Integer.valueOf((String) newValue);
+            int index = mNavigationBarHeight.findIndexOfValue((String) newValue);
+            Settings.System.putInt(getActivity().getApplicationContext().getContentResolver(),
+                    Settings.System.NAVIGATION_BAR_HEIGHT, statusNavigationBarHeight);
+            mNavigationBarHeight.setSummary(mNavigationBarHeight.getEntries()[index]);
+        }
+        return true;
+    }
  }
