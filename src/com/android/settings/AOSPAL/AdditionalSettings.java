@@ -52,6 +52,7 @@ public class AdditionalSettings extends SettingsPreferenceFragment implements
     }
 
     public boolean onPreferenceChange(Preference preference, Object newValue) {
+		
         return false;
     }
     
