@@ -611,4 +611,32 @@
         <item>3</item>
         <item>5</item>
     </string-array>
+    
+    <!-- CFX arrays -->
+    <!-- LCD Density Wizard -->
+    <string-array name="lcd_density_entries" translatable="false">
+        <item>100</item>
+        <item>120</item>
+        <item>160</item>
+        <item>171</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>280</item>
+        <item>@string/custom_density</item>
+    </string-array>
+
+    <string-array name="lcd_density_stock_entries" translatable="false">
+        <item>@string/lcd_density_stock_160</item>
+        <item>@string/lcd_density_stock_240</item>
+        <item>@string/lcd_density_stock_320</item>
+    </string-array>
+
+    <string-array name="lcd_density_stock_values" translatable="false">
+        <item>160</item>
+        <item>240</item>
+        <item>320</item>
+    </string-array>
+    <!-- Display :  LCD Density Wizard **END** -->
 </resources>
