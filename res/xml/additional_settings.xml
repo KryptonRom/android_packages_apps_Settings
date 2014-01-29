@@ -34,6 +34,14 @@
         android:icon="@drawable/ic_settings_lock_screen"
         android:title="@string/additional_settings_lockscreen_title"/>
         
+        
+    <!-- HALO -->
+    <PreferenceScreen
+        android:id="@+id/halo_settings"
+        android:fragment="com.android.settings.paranoid.Halo"
+        android:icon="@drawable/ic_settings_halo"
+        android:title="@string/halo_settings_title" />
+        
    <!-- Appsidebar -->
    <PreferenceScreen
         android:key="app_sidebar"
