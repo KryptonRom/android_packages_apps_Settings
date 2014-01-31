@@ -66,8 +66,7 @@
             android:targetClass="org.omnirom.omniswitch.SettingsActivity" />
      </PreferenceScreen>
 
-    
-    <PreferenceCategory
+     <PreferenceCategory
         android:key="button_headsethook"
         android:title="@string/button_headsethook_title" >
 
