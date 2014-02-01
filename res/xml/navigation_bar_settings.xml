@@ -40,4 +40,8 @@
              android:title="@string/navigation_ring_title"
              android:summary="@string/navigation_ring_summary" />
              
+         <PreferenceScreen android:title="LMT">
+            <intent android:targetPackage="com.android.lmt" android:action="android.intent.action.MAIN" android:targetClass="com.android.lmt.LMT" />
+         </PreferenceScreen>
+             
 </PreferenceScreen>   

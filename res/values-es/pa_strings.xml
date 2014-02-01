@@ -772,7 +772,7 @@ dos con el fin de insertar puntos de control adicionales. \'Eliminar\' borra la 
     <string name="status_bar_double_tap_to_sleep_title">Pulse dos veces para dormir</string>
     
     <!-- Themes -->
-    <string name="theme_settings_title">DarkUI</string>
+    <string name="theme_settings_title">KryptonDark</string>
     <string name="theme_auto_mode_title">Cambiar tema</string>
     <string name="theme_auto_mode_off">Manual</string>
     <string name="theme_auto_mode_lightsensor">Segun la luza ambiental cambiar</string>

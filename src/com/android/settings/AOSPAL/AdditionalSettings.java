@@ -89,5 +89,6 @@ public class AdditionalSettings extends SettingsPreferenceFragment implements
             return true;
         } 
         return super.onPreferenceTreeClick(preferenceScreen, preference);
+>>>>>>> 4589105... Lockscreen wallpaper: show error if cropping not supported
     }
 }
