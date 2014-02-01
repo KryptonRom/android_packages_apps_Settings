@@ -1175,4 +1175,8 @@ two in order to insert additional control points. \'Remove\' deletes the selecte
     <string name="omniswitch_not_installed_message">OmniSwitch is not installed</string>
     <string name="omniswitch_first_time_title">Information</string>
     <string name="omniswitch_first_time_message">Make sure you have enabled OmniSwitch. You can do this by using \"Settings\" below</string> 
+
+    <!-- ADB Paranoia settings -->
+    <string name="adb_paranoid">ADB paranoia mode</string>
+    <string name="adb_paranoid_summary">Immediately reboot if an unknown computer is connected while device is locked</string>
 </resources>
