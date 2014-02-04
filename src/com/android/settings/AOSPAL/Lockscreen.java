@@ -35,6 +35,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.Display;
 import android.view.Window;
+import android.widget.Toast;
 
 import com.android.settings.R;
 import com.android.settings.SettingsPreferenceFragment;
@@ -147,11 +148,9 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             intent.putExtra("aspectY", isPortrait ? size.y : size.x);
 
             try {
-                mWallpaperTemporary.deleteOnExit();
                 mWallpaperTemporary.createNewFile();
                 mWallpaperTemporary.setWritable(true, false);
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(mWallpaperTemporary));
-                intent.putExtra("return-data", false);
                 getActivity().startActivityFromFragment(this, intent, REQUEST_CODE_BG_WALLPAPER);
             } catch (IOException e) {
                 // Do nothing here
@@ -172,6 +171,12 @@ public class Lockscreen extends SettingsPreferenceFragment implements
             Intent imageReturnedIntent) {
         if (requestCode == REQUEST_CODE_BG_WALLPAPER) {
             if (resultCode == Activity.RESULT_OK) {
+				if (mWallpaperTemporary.length() == 0 || !mWallpaperTemporary.exists()) {
+                    Toast.makeText(getActivity(),
+                            getResources().getString(R.string.shortcut_image_not_valid),
+                            Toast.LENGTH_LONG).show();
+                    return;
+                }
                 Bitmap bmp = BitmapFactory.decodeFile(mWallpaperTemporary.getAbsolutePath());
                 try {
                     mKeyguardService.setWallpaper(bmp);
@@ -181,6 +186,7 @@ public class Lockscreen extends SettingsPreferenceFragment implements
                 }
             }
         }
+        if (mWallpaperTemporary.exists()) mWallpaperTemporary.delete();
     }
     
     private void setWallpaper(Bitmap bmp) {
