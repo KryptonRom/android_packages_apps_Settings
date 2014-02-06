@@ -765,4 +765,10 @@
         <item>vibrate</item>
         <item>mute</item>
     </string-array>
+    
+    <!-- SlimSizer -->
+    <string-array name="slimsizer_profile_array">
+        <item >Load Profile</item>
+        <item >Save Profile</item>
+    </string-array>
 </resources>
