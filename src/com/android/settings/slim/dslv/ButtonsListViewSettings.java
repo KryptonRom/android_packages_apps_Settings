@@ -572,6 +572,12 @@ public class ButtonsListViewSettings extends ListFragment implements
             case NAV_RING:
                 return ButtonsHelper.getNavRingConfigWithDescription(
                     mActivity, mActionValuesKey, mActionEntriesKey);
+            case PIE:
+                return ButtonsHelper.getPieConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
+            case PIE_SECOND:
+                return ButtonsHelper.getPieSecondLayerConfigWithDescription(
+                    mActivity, mActionValuesKey, mActionEntriesKey);
             case NOTIFICATION_SHORTCUT:
                 return ButtonsHelper.getNotificationsShortcutConfig(mActivity);
         }
@@ -585,6 +591,12 @@ public class ButtonsListViewSettings extends ListFragment implements
                 break;
             case NAV_RING:
                 ButtonsHelper.setNavRingConfig(mActivity, buttonConfigs, reset);
+                break;
+            case PIE:
+                ButtonsHelper.setPieConfig(mActivity, buttonConfigs, reset);
+                break;
+            case PIE_SECOND:
+                ButtonsHelper.setPieSecondLayerConfig(mActivity, buttonConfigs, reset);
                 break;
             case NOTIFICATION_SHORTCUT:
                 ButtonsHelper.setNotificationShortcutConfig(mActivity, buttonConfigs, reset);
