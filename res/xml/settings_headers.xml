@@ -80,7 +80,14 @@
         android:fragment="com.android.settings.slim.themes.ThemeSettings"
         android:icon="@drawable/ic_settings_theme"
         android:title="@string/theme_settings_title" />
-             
+
+    <!-- Density changer -->
+    <header
+        android:id="@+id/density_settings"
+        android:fragment="com.android.settings.crdroid.DensitySettings"
+        android:icon="@drawable/ic_density_settings"
+        android:title="@string/custom_density_title" />
+
     <!-- Profiles -->
     <header
         android:id="@+id/profiles_settings"
