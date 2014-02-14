@@ -39,7 +39,6 @@ import net.margaritov.preference.colorpicker.ColorPickerPreference;
 public class Halo extends SettingsPreferenceFragment
         implements Preference.OnPreferenceChangeListener {
 
-	private static final String KEY_HALO_ENABLED = "halo_enabled";
     private static final String KEY_HALO_STATE = "halo_state";
     private static final String KEY_HALO_HIDE = "halo_hide";
     private static final String KEY_HALO_SIZE = "halo_size";
@@ -55,7 +54,6 @@ public class Halo extends SettingsPreferenceFragment
     private static final String PREF_HALO_NUMBER_TEXT_COLOR = "halo_number_text_color";
     private static final String PREF_HALO_NUMBER_CONTAINER_COLOR = "halo_number_container_color";
 
-	private SwitchPreference mHaloEnabled;
     private ListPreference mHaloState;
     private ListPreference mHaloSize;
     private CheckBoxPreference mHaloHide;
@@ -85,11 +83,6 @@ public class Halo extends SettingsPreferenceFragment
         mNotificationManager = INotificationManager.Stub.asInterface(
                 ServiceManager.getService(Context.NOTIFICATION_SERVICE));
                 
-        mHaloEnabled = (SwitchPreference) findPreference(KEY_HALO_ENABLED);
-        mHaloEnabled.setChecked((Settings.System.getInt(getContentResolver(),
-                Settings.System.HALO_ENABLED, 0) == 1));
-        mHaloEnabled.setOnPreferenceChangeListener(this);
-
         mHaloState = (ListPreference) prefSet.findPreference(KEY_HALO_STATE);
         mHaloState.setValue(String.valueOf((isHaloPolicyBlack() ? "1" : "0")));
         mHaloState.setOnPreferenceChangeListener(this);
@@ -212,11 +205,6 @@ public class Halo extends SettingsPreferenceFragment
             int haloNotifyCount = Integer.valueOf((String) newValue);
             Settings.System.putInt(getActivity().getContentResolver(),
                     Settings.System.HALO_NOTIFY_COUNT, haloNotifyCount);
-            return true;
-        } else if (preference == mHaloEnabled) {
-            Settings.System.putInt(getContentResolver(),
-                    Settings.System.HALO_ENABLED,
-                    ((Boolean) newValue).booleanValue() ? 1 : 0);
             return true;
         } else if (preference == mHaloCircleColor) {
             String hex = ColorPickerPreference.convertToARGB(

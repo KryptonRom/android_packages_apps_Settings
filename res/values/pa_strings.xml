@@ -333,10 +333,6 @@ USB networks). This setting is reset on reboot</string>
     <string name="halo_notification_count_individual">Per app</string>
     <string name="halo_notification_count_both">Both</string>
     
-    <string name="halo_enable_title">Enable Halo</string>
-    <string name="halo_enable_summary_on">Halo is enabled</string>
-    <string name="halo_enable_summary_off">Halo is disabled</string>
-
     <string name="halo_colors_title">Custom colors</string>
     <string name="halo_colors_summary">Enable custom colors for Halo instead of the default theme colors</string>
     <string name="halo_circle_color_title">Circle color</string>
