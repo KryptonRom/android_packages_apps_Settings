@@ -966,5 +966,214 @@ dos con el fin de insertar puntos de control adicionales. \'Eliminar\' borra la 
     <string name="lcd_density_stock_160">160 -- mdpi</string>
     <string name="lcd_density_stock_240">240 -- hdpi</string>
     <string name="lcd_density_stock_320">320 -- xhdpi</string>
+    
+    <!-- Sound themes -->
+    <string name="sound_packages_title">Packs de Sonido</string>
+    <string name="install_sound_pack_title">Instalar paquete de sonido</string>
+    <string name="install_sound_pack_summary">Instala un nuevo paquete de sonido añadiendolo en la carpeta SoundPacks de la memoria interna</string>
+    <string name="select_sound_pack_title">Selecciona paquete de sonido</string>
+    <string name="select_sound_pack_summary">Seleccione el paquete de sonido</string>
+    <string name="default_sound_pack">Por defecto (Sistema)</string>
+    <string name="error_pack_install">Error al instalar el paquete de sonido</string>
+    
+    <!-- Wakelock blocker -->
+    <string name="wakelock_blocker">Wakelock Blocker</string>
+    <string name="wakelock_blocker_title">Habilitar</string>
+    <string name="wakelock_blocker_summary">Activar el wakelock blocker</string>
+    <string name="wakelock_blocker_save">Guardar</string>
+    <string name="wakelock_list_header">Wakelocks Disponibles</string>
+    <string name="wakelock_blocker_reload">Recargar</string>
+    <string name="wakelock_blocker_warning_title">Actua con precaución</string>
+    <string name="wakelock_blocker_warning">Wakelocks blocker puede causar inestabilidad, accidentes o pérdida de datos.</string>
+    
+    <!-- Power menu enable disable -->
+    <string name="power_menu_title">Power menu</string>
+    <string name="power_menu_reboot_title">Reboot</string>
+    <string name="power_menu_screenshot_title">Captura de pantalla</string>
+    <string name="power_menu_screenrecord_title">Grabador de pantalla</string>
+    <string name="power_menu_airplane_title">Modo avión</string>
+    <string name="power_menu_silent_title">Panel de sonido</string>
+    <string name="power_menu_profiles_title">Perfiles</string>
+    <string name="power_menu_profiles_disabled">Deshabilitar</string>
+    <string name="power_menu_profiles_lock">Deshabilitar en el Lockscreen</string>
+    <string name="power_menu_profiles_all">Siempre visible</string>
+
+
+    <!-- Profiles settings  -->
+    <string name="profiles_settings_title">Perfiles</string>
+    <string name="profiles_general_title">General</string>
+    <string name="profile_settings_title">Perfil</string>
+    <string name="profile_menu_delete">Borrar</string>
+    <string name="profile_empty_list_profiles_off">Para configurar perfiles, activelo.</string>
+
+    <!-- Add Profile -->
+    <string name="add_profile_dialog_title">Crear nuevo perfil</string>
+    <string name="profile_name_title">Nombre</string>
+    <string name="profile_profile_name_prompt">Introduzca el nombre del nuevo perfil</string>
+    <string name="menu_new_profile">Nuevo perfil</string>
+    <string name="menu_new_profile_summary">Agrega y configura un nuevo perfil</string>
+    <string name="new_profile_name">&lt;new profile&gt;</string>
+
+    <!-- Rename Dialog  -->
+    <string name="rename_dialog_title">Renombrar</string>
+    <string name="rename_dialog_message">Introduzca un nuevo nombre</string>
+    <string name="duplicate_profile_name">¡Nombre de perfil duplicado!</string>
+    <string name="duplicate_appgroup_name">¡Nombre de aplicación de grupo duplicado!</string>
+
+    <!-- Delete confimation messages -->
+    <string name="profile_delete_confirm">¿Borrar este perfil?</string>
+    <string name="profile_app_delete_confirm">¿Borrar esta aplicación?</string>
+    <string name="profile_cannot_delete">Un perfil activo no puede ser borrado</string>
+
+    <!-- Profile Config screen PreferenceGroup titles -->
+    <string name="profile_connectionoverrides_title">Conexiones anuladas</string>
+    <string name="profile_volumeoverrides_title">Volumen anulado</string>
+    <string name="profile_vibratoroverrides_title">Vibración anulada</string>
+    <string name="volume_override_summary">Se establece en</string>
+    <string name="vibrator_state_disabled">Deshabilitar</string>
+    <string name="vibrator_state_enabled">Habilitar</string>
+    <string name="vibrator_state_silent">Sólo en silencio</string>
+
+    <!-- Menu item for managing profiles -->
+    <string name="profile_profiles_manage">Perfiles</string>
+    <string name="profile_profile_manage">Administrar perfil</string>
+    <string name="profile_applist_manage">Lista de aplicaciones</string>
+    <string name="profile_appgroups_manage">Aplicaciones de grupo</string>
+    <string name="profile_appgroup_manage">Gestionar aplicaciones de grupo</string>
+
+    <!-- Profile settings screen, section header for settings related to notification profiles -->
+    <string name="profile_settings">Configuración del perfil</string>
+    <string name="profile_name">Nombre</string>
+    <string name="profile_trigger_connect">En conexión</string>
+    <string name="profile_trigger_disconnect">En desconexión</string>
+    <string name="profile_trigger_notrigger">No trigger</string>
+
+    <!-- Profile Settings sound modes labels -->
+    <string name="sound_mode">Modo Notificación</string>
+    <string name="ringer_mode">Modo de Llamada</string>
+    <string name="lights_mode">Modo de luz</string>
+    <string name="vibrate_mode">Modo Vibración</string>
+    <string name="choose_soundtone">Elige tono de notifiación</string>
+    <string name="choose_ringtone">Elige tono de llamada</string>
+
+    <!-- Sound settings screen, setting option name to pick ringtone (a list dialog comes up)-->
+    <string name="soundtone_title">Tono de Notificación</string>
+    <string name="soundtone_summary">""</string>
+
+    <!-- Title for application group setting screen -->
+    <string name="profile_appgroups_title">Aplicacines de grupo</string>
+    <string name="profile_new_appgroup">Nueva aplicación de grupo</string>
+    <string name="profile_delete_appgroup">¿Borrar esta aplicación de grupo?</string>
+    <string name="profile_appgroup_name_prompt">Introduce el nombre de la nueva aplicación de grupo</string>
+    <string name="profile_appgroup_name_title">Nombre</string>
+    <string name="profile_add_app">Añadir aplicación</string>
+    <string name="profile_delete_app">Borrar aplicación</string>
+
+    <!-- Add application dialog box title -->
+    <string name="profile_settings_header">Configuración de perfiles</string>
+
+    <!-- Profiles - system settings -->
+    <string name="profile_system_settings_title">System settings</string>
+    <string name="profile_lockmode_title">Lock screen mode</string>
+    <string name="profile_lockmode_default">Default</string>
+    <string name="profile_lockmode_insecure">Insecure</string>
+    <string name="profile_lockmode_disabled">Disabled</string>
+    <string name="profile_lockmode_default_summary">Use system default</string>
+    <string name="profile_lockmode_insecure_summary">Use insecure lock screen</string>
+    <string name="profile_lockmode_disabled_summary">Lock screen is disabled</string>
+    <string name="profile_airplanemode_title">Airplane mode</string>
+    <string name="profile_disable_screen_lock_summary">Disable lock screen security while this profile is active</string>
+
+    <string name="profile_trigger_configure">Configure trigger</string>
+    <string name="profile_triggers">Triggers</string>
+    <string name="profile_trigger_filter_all">All triggers</string>
+    <string name="profile_trigger_filter_wifi">Wi-Fi triggers</string>
+    <string name="profile_trigger_filter_bluetooth">Bluetooth triggers</string>
+    <string name="profile_write_nfc_tag">Write to NFC tag</string>
+    <string name="profile_write_touch_tag">Touch tag to write</string>
+    <string name="profile_write_success">Tag successfully written</string>
+    <string name="profile_write_failed">Tag writing failed!</string>
+    <string name="profile_selected">Profile selected: %1$s</string>
+    <string name="profile_nfc_text">Writing a profile to a NFC tag allows for tapping the tag to select the profile. Tapping a second time will select the previously selected profile.</string>
+    <string name="profile_unknown_nfc_tag">Unknown profile</string>
+    <string name="profile_add_nfc_text">This NFC tag refers to an unknown profile. Attaching this NFC tag to an existing profile will allow for selecting the profile in the future.</string>
+    <string name="profile_select">Select profile</string>
+
+    <!-- less notification sound -->
+    <string name="less_notification_sounds_default">Comportamiento por defecto</string>
+    <string name="less_notification_sounds_3s">3 segundos</string>
+    <string name="less_notification_sounds_5s">5 segundos</string>
+    <string name="less_notification_sounds_10s">10 segundos</string>
+    <string name="less_notification_sounds_15s">15 segundos</string>
+    <string name="less_notification_sounds_30s">30 segundos</string>
+    <string name="less_notification_sounds_45s">45 segundos</string>
+    <string name="less_notification_sounds_1m">1 minuto</string>
+    <string name="less_notification_sounds_2m">2 minutos</string>
+    <string name="less_notification_sounds_5m">5 minutos</string>
+
+    <!-- Connection override toggles (not all are used at this time ) -->
+    <string name="possibleButtons">Botones posibles</string>
+    <string name="toggleWifi">Wi-Fi</string>
+    <string name="toggleWifiAp">Portable Wi-Fi hotspot</string>
+    <string name="toggleBluetooth">Bluetooth</string>
+    <string name="toggleGPS">GPS</string>
+    <string name="toggleData">Datos móviles</string>
+    <string name="toggleSync">Sincronización de datos</string>
+    <string name="toggle2g3g">2G/3G</string>
+    <string name="toggleSound">Modo de tono</string>
+    <string name="toggleNotificationSound">Sonido de notificaciones</string>
+    <string name="toggleBrightness">Brillo</string>
+    <string name="toggleAutoRotate">Orientación</string>
+    <string name="toggleScreenTimeout">Tiempo de espera de la pantalla</string>
+    <string name="toggleAirplane">Avión</string>
+    <string name="toggleFlashlight">Linterna</string>
+    <string name="toggleLockScreen">Lockscreen</string>
+    <string name="toggleWimax">WiMAX</string>
+    <string name="toggleNfc">NFC</string>
+    <string name="connection_state_disabled">Deshabilitar</string>
+    <string name="connection_state_enabled">Habilitar</string>
+    
+    <!-- Profile network mode -->
+    <string name="profile_networkmode_2g">2G</string>
+    <string name="profile_networkmode_3g">3G</string>
+    <string name="profile_networkmode_2g3g">2G/3G</string>
+    
+    <!-- Ring mode -->
+    <string name="ring_mode_title">Modo de sonido</string>
+    <string name="ring_mode_normal">Normal</string>
+    <string name="ring_mode_vibrate">Vibración</string>
+    <string name="ring_mode_mute">Silencio</string>
+    
+    <!-- SlimSizer  -->
+    <string name="listsystem">Lista</string>
+    <string name="sizer_title">System App Remover</string>
+    <string name="caution">¡Precaución!</string>
+    <string name="sizer_message_startup">Esta herramienta le permite eliminar aplicaciones del sistema. Usela con precaución y elimine sólo aplicaciones que conoces son seguros para ser eliminado.</string>
+    <string name="sizer_message_delete">¿Está seguro de que desea eliminar esta aplicación?</string>
+    <string name="btn_delete">¡Eliminar aplicaciones seleccionadas ahora!</string>
+    <string name="delete_progress_title">Eliminando</string>
+    <string name="delete_progress">Se están eliminando los archivos seleccionados ...</string>
+    <string name="delete_success">Borrado</string>
+    <string name="delete_fail">No se puede eliminar</string>
+    <string name="btn_profile">Perfil</string>
+    <string name="sizer_message_sdnowrite">No se puede escribir en la tarjeta SD.</string>
+    <string name="sizer_message_sdnoread">No se puede leer la tarjeta SD.</string>
+    <string name="sizer_message_filesuccess">Perfil creado.</string>
+    <string name="sizer_message_filefail">No se pudo crear el perfil</string>
+    <string name="sizer_message_noselect">Nada seleccionado.</string>
+    <string name="system_app_remover">System App Remover</string>
+    
+    <!-- OmniSwitch  -->
+    <string name="omniswitch_category">Recientes</string>
+    <string name="recents_use_omniswitch_title">Usar OmniSwitch por defecto</string>
+    <string name="recents_use_omniswitch_summary">Utilice OmniSwitch en lugar de la vista de aplicaciones recientes por defecto</string>
+    <string name="omniswitch_start_settings_title">Ajustes</string>
+    <string name="omniswitch_start_settings_summary">Abrir la configuración de OmniSwitch</string>
+    <string name="omniswitch_not_installed_title">Precaución</string>
+    <string name="omniswitch_not_installed_summary">OmniSwitch no está instalado</string>
+    <string name="omniswitch_not_installed_message">OmniSwitch no está instalado</string>
+    <string name="omniswitch_first_time_title">Información</string>
+    <string name="omniswitch_first_time_message">Asegúrese de que ha habilitado OmniSwitch. Usted puede hacer esto mediante el uso de \"Settings\" abajo</string> 
+
 	
 </resources>
