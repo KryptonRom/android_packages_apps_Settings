@@ -2,6 +2,7 @@ package com.android.settings.cfx;
 
 import android.app.ActivityManager;
 import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -56,6 +57,7 @@ public class DensityChanger extends SettingsPreferenceFragment implements
 
     private static final int DIALOG_DENSITY = 101;
     private static final int DIALOG_WARN_DENSITY = 102;
+    private static final int DIALOG_HOT_REBOOT = 103;
 
     int newDensityValue;
 
@@ -112,8 +114,8 @@ public class DensityChanger extends SettingsPreferenceFragment implements
     @Override
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mReboot) {
-			HotReboot();
-            return true;
+			showDialog(DIALOG_HOT_REBOOT);
+			return true;
         } else if (preference == mClearMarketData) {
             ActivityManager am = (ActivityManager)
                     getActivity().getSystemService(Context.ACTIVITY_SERVICE);
@@ -208,6 +210,30 @@ public class DensityChanger extends SettingsPreferenceFragment implements
                                     }
                                 })
                         .create();
+		case DIALOG_HOT_REBOOT:
+			return new AlertDialog.Builder(getActivity())
+					.setTitle("Confirm")
+					.setMessage("Are you sure you want to hot reboot?")
+					.setPositiveButton("Reboot",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									PowerManager pm = (PowerManager) getActivity()
+											.getSystemService(
+													Context.POWER_SERVICE);
+									pm.reboot("hot");
+									dialog.dismiss();
+								}
+							})
+					.setNegativeButton("Cancel",
+							new DialogInterface.OnClickListener() {
+								@Override
+								public void onClick(DialogInterface dialog,
+										int which) {
+									dialog.dismiss();
+								}
+							}).create();
         }
         return null;
     }
@@ -243,19 +269,8 @@ public class DensityChanger extends SettingsPreferenceFragment implements
 	}
 
     private void setLcdDensity(int newDensity, boolean reboot) {
-        SystemProperties.set("persist.sys.density", String.valueOf(newDensity));
-        if (reboot)
-            HotReboot();
-    }
-
-	private void HotReboot() {
-		// PowerManager pm = (PowerManager) getActivity()
-		// .getSystemService(Context.POWER_SERVICE);
-		// pm.reboot("hotreboot");
-		Intent intent = new Intent()
-				.setAction(Settings.System.ACTION_CFX_HOT_REBOOT);
-		getActivity().sendBroadcastAsUser(intent,
-				new UserHandle(UserHandle.USER_ALL));
+		SystemProperties.set("persist.sys.density", String.valueOf(newDensity));
+		if (reboot) showDialog(DIALOG_HOT_REBOOT);
 	}
 
     class ClearUserDataObserver extends IPackageDataObserver.Stub {

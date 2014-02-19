@@ -947,7 +947,7 @@ dos con el fin de insertar puntos de control adicionales. \'Eliminar\' borra la 
     <string name="stock_density_title">1. Restaurar densidad de LCD a valores predeterminados</string>
     <string name="stock_density_changed_summary">"Ajustar densidad a: "</string>
     <string name="reboot_title">3. Reiniciar</string>
-    <string name="reboot_summary">Reinicie manualmente el telefono y regrese aquí para continuar el proceso</string>
+    <string name="reboot_summary">Vuelve otra vez aqui despues del reinicio y completar el resto de los pasos</string>
     <string name="clear_market_data_title">4. Limpiar datos de la Play Store</string>
     <string name="clear_market_data_cleared">Datos de la Play Store eliminados</string>
     <string name="open_market_title">5. Abrir la Play Store y darle a aceptar</string>
