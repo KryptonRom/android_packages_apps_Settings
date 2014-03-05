@@ -93,10 +93,5 @@
             android:title="@string/noti_reminder_ringtone"
             android:ringtoneType="all"
             android:showSilent="false"
-            android:dependency="noti_reminder_enabled" />     
-            
-        <PreferenceScreen
-			android:key="notification_drawer"
-			android:fragment="com.android.settings.slim.NotificationDrawerSettings"
-			android:title="@string/notification_drawer_title" />    
+            android:dependency="noti_reminder_enabled" />         
 </PreferenceScreen>   
