@@ -555,9 +555,6 @@ public class LockscreenTargets extends Fragment implements
                     + ", source=" + icon.iconSource + ", package= " + icon.packageName + ")");
         }
     }
-    
-    public void onTargetChange(View v, int target) {
-    }
 
     @Override
     public void onFinishFinalAnimation() {
